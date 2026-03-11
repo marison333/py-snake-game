@@ -13,9 +13,10 @@ class Entity:
 # child classes that makes use of the class Entity and then adds its own stuff
 # player has name, health and inventory
 class Player(Entity):
-    def __init__(self, name, health):
+    def __init__(self, name, health, inventory):
         super().__init__(name, health)
-
+        self.inventory = inventory
+        
 # monster has name, health and loot
 class Monster(Entity):
     def __init__(self, name, health, loot):
