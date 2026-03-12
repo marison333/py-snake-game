@@ -40,6 +40,21 @@ Split this into:
 
 Each is **reviewable and traceable** on its own.
 
+## Branch Naming
+- Use structured, descriptive names for branches (one topic per branch).
+- Suggested patterns:
+  - `feat/<short-description>` for new features
+  - `fix/<short-description>` for bug fixes
+  - `refactor/<short-description>` for refactoring work
+  - `docs/<short-description>` for documentation updates
+  - `chore/<short-description>` for maintenance tasks
+- Keep names lowercase, words separated by hyphens, and avoid spaces.
+
+Example:
+- `feat/enhance-snake-ai`
+- `fix/collision-boundary-error`
+- `docs/add-naming-conventions`
+
 ## **Types**
 there are more **types of conceptual commits** beyond the few listed in the examples (feat, fix, refactor, etc.). These are often based on the [**Conventional Commits**](https://www.conventionalcommits.org/en/v1.0.0/) standard, which provides a useful naming convention to describe the purpose of each commit.
 
