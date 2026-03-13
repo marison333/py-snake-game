@@ -3,9 +3,6 @@ import random
 from utils import slow_print
 from entities import Player, Monster
 
-john = Player("You", 100, [])
-skeleton = Monster("Skeleton", 50, "Bones")
-
 def print_status(player, monster):
     max_player_health = player.max_health
     max_monster_health = monster.max_health
@@ -85,7 +82,6 @@ def fight(player, monster):
                 break
             continue
 
-        # Player attack phase
         resolve_attacker(player, monster)
         if monster.health <= 0:
             print("\033[H\033[J", end="")
@@ -93,7 +89,6 @@ def fight(player, monster):
             time.sleep(2)
             break
 
-        # Monster retaliates
         resolve_attacker(monster, player)
         if player.health <= 0:
             print("\033[H\033[J", end="")
