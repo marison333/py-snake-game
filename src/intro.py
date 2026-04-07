@@ -2,21 +2,14 @@ import time
 from utils import slow_print
 from entities import Player
 
+title_file_path = 'assets/title.txt'
+
+
 def intro():
-    print("\n")
-    slow_print(r"""
-    ____   ____      .__               .__
-    \   \ /   /____  |  |   ___________|__|____
-     \   Y   /\__  \ |  |  /  _ \_  __ \  \__  \
-      \     /  / __ \|  |_(  <_> )  | \/  |/ __ \_
-       \___/  (____  /____/\____/|__|  |__(____  /
-                   \/                          \/
-    """)
+    with open(title_file_path, 'r') as file:
+        slow_print(file.read())
 
-    time.sleep(1)
-
-    slow_print("Press Enter to Begin Your Journey...")
-    slow_print("\nWelcome to Valoria, the capital of this Kingdom.")
+    slow_print("\nWelcome to Valoria, the capital of this Kingdom.\n")
 
     player_name = input("\nHero, what is your name? ")
     player = Player(player_name, 100, [])
@@ -72,3 +65,6 @@ def intro():
     slow_print("\nYour first battle begins!")
 
     return player
+
+if __name__ == "__main__":
+    intro()
