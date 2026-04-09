@@ -5,3 +5,10 @@ def slow_print(text):
         print(letter, end="", flush=True)
         time.sleep(0.03)
     print()
+
+def ask_choice(question, options):
+    while True:
+        choice = input(f"\n{question} ({'/'.join(options)}): ").lower().strip()
+        if choice in options:
+            return choice
+        print("Invalid choice, please try again.")
