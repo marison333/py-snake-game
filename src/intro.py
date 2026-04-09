@@ -1,10 +1,10 @@
 import os
 import json
-from utils import slow_print, ask_choice
+from utils import slow_print, print_screen, ask_choice
 from create_player import create_player
 
+TITLE_SCREEN = 'assets/title.txt'
 base_dir = os.path.dirname(__file__)
-title_file_path = os.path.join(base_dir, '..', 'assets', 'title.txt')
 story_file_path = os.path.join(base_dir, 'story.json')
 
 
@@ -13,9 +13,8 @@ def load_story():
         return json.load(file)
 
 
-def intro():
-    with open(title_file_path, 'r') as file:
-        slow_print(file.read())
+def show_intro():
+    print_screen(TITLE_SCREEN)
 
     slow_print("\nWelcome to Valoria, the capital of this Kingdom.\n")
 

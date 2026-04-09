@@ -12,3 +12,8 @@ def ask_choice(question, options):
         if choice in options:
             return choice
         print("Invalid choice, please try again.")
+
+
+def print_screen(file_path):
+    with open(file_path, 'r') as file:
+        print(file.read())
