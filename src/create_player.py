@@ -1,4 +1,4 @@
-from entities import Player
+from entities.player import Player
 from utils import slow_print
 
 

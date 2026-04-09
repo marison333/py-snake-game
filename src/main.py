@@ -1,6 +1,6 @@
 from intro import intro
 from outro import outro
-from entities import Monster
+from entities.monster import Monster
 from combat import fight
 
 # define the player & Starts the intro
