@@ -1,0 +1,118 @@
+{
+  "start": "accept_quest",
+
+  "accept_quest": {
+    "text": [
+      "It appears you are a traveling Hero seeking a quest correct?"
+    ],
+    "question": "Do you accept this quest?",
+    "options": ["yes", "no"],
+    "results": {
+      "yes": [
+        "There is a Dungeon called the Crypt of the Forgotten King here in this Kingdom.",
+        "Hidden treasures lie inside... and perhaps an ultra rare artifact."
+      ],
+      "no": [
+        "Safe travels adventurer."
+      ]
+    },
+    "next": {
+      "yes": "dungeon_location",
+      "no": null
+    }
+  },
+
+  "dungeon_location": {
+    "text": [],
+    "question": "Would you like to know where this Dungeon is?",
+    "options": ["yes", "no"],
+    "results": {
+      "yes": [
+        "Head South towards the entrance of the capital.",
+        "Guides there can lead you to the dungeon."
+      ],
+      "no": [
+        "That's too bad, have a good day!"
+      ]
+    },
+    "next": {
+      "yes": "shop_choice",
+      "no": null
+    }
+  },
+
+  "shop_choice": {
+    "text": [
+      "While heading to the entrance you notice a small shop for weapons and armor."
+    ],
+    "question": "Would you like to go inside or continue?",
+    "options": ["inside", "continue"],
+    "results": {
+      "inside": [
+        "You enter the shop hoping to buy armor...",
+        "But you quickly realize you have no gold.",
+        "Embarrassed, you leave the shop."
+      ],
+      "continue": [
+        "You continue toward the capital entrance."
+      ]
+    },
+    "next": {
+      "inside": "meet_guide",
+      "continue": "meet_guide"
+    }
+  },
+
+  "meet_guide": {
+    "text": [
+      "You finally arrive at the entrance where a guide waits."
+    ],
+    "question": "The guide asks: Are you the Hero seeking the Crypt?",
+    "options": ["yes", "no"],
+    "results": {
+      "yes": [
+        "You begin the long walk through the forest.",
+        "After hours of travel, the entrance of the Crypt stands before you.",
+        "Ancient stone doors covered in runes tower above you."
+      ],
+      "no": [
+        "Ah... my mistake. Safe travels."
+      ]
+    },
+    "next": {
+      "yes": "enter_crypt",
+      "no": null
+    }
+  },
+
+  "enter_crypt": {
+    "text": [],
+    "question": "Do you enter the Crypt?",
+    "options": ["yes", "no"],
+    "results": {
+      "yes": [
+        "You slowly step inside the dark Crypt...",
+        "Torches flicker along the cold stone walls.",
+        "Suddenly... bones begin rattling nearby."
+      ],
+      "no": [
+        "You decide this dungeon is too dangerous for now."
+      ]
+    },
+    "next": {
+      "yes": "battle_start",
+      "no": null
+    }
+  },
+
+  "battle_start": {
+    "text": [
+      "A Skeleton Warrior rises from the ground!",
+      "Your first battle begins!"
+    ],
+    "question": "",
+    "options": [],
+    "results": {},
+    "next": {}
+  }
+}
