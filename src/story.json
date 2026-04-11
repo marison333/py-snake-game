@@ -1,6 +1,5 @@
 {
   "start": "accept_quest",
-
   "accept_quest": {
     "text": [
       "It appears you are a traveling Hero seeking a quest correct?"
@@ -21,7 +20,6 @@
       "no": null
     }
   },
-
   "dungeon_location": {
     "text": [],
     "question": "Would you like to know where this Dungeon is?",
@@ -40,7 +38,6 @@
       "no": null
     }
   },
-
   "shop_choice": {
     "text": [
       "While heading to the entrance you notice a small shop for weapons and armor."
@@ -62,7 +59,6 @@
       "continue": "meet_guide"
     }
   },
-
   "meet_guide": {
     "text": [
       "You finally arrive at the entrance where a guide waits."
@@ -84,7 +80,6 @@
       "no": null
     }
   },
-
   "enter_crypt": {
     "text": [],
     "question": "Do you enter the Crypt?",
@@ -100,19 +95,43 @@
       ]
     },
     "next": {
-      "yes": "battle_start",
+      "yes": "battle_crypt",
       "no": null
     }
   },
-
-  "battle_start": {
+  "battle_crypt": {
     "text": [
-      "A Skeleton Warrior rises from the ground!",
+      "A Skeleton rises from the ground!",
       "Your first battle begins!"
     ],
+    "monster": {
+        "name": "Skeleton",
+        "health": 50,
+        "loot": ["Rusty Sword", "Bones"]
+    },
     "question": "",
     "options": [],
     "results": {},
+    "next": {}
+  },
+  "outro": {
+    "text": [],
+    "question": "",
+    "options": [],
+    "results": {
+        "win": [
+          "You defeated the Skeleton Warrior!",
+          "Congratulations on your victory!"
+        ],
+        "lose": [
+          "You were defeated by the Skeleton Warrior.",
+          "Better luck next time!"
+        ],
+          "flee": [
+            "You fled from the battle.",
+            "Sometimes discretion is the better part of valor."
+          ]
+    },
     "next": {}
   }
 }

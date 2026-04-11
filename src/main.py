@@ -1,20 +1,24 @@
-from intro import intro
-from outro import outro
-from entities.monster import Monster
-from combat import fight
+from core.combat import fight
+from story_navigators import load_story, show_intro, play_story
+from create_player import create_player
+from core.game_state import consume_event, create_game_state
+from utils import slow_print
 
-# define the player & Starts the intro
-player = intro()
+def start():
+    story = load_story()
 
-if player is None:
-    print("You chose to leave Valoria. Maybe next time!")
-    exit()
+    show_intro()
+    player = create_player()
+    game_state = create_game_state(player)
 
-# define the monster
-skeleton = Monster("Skeleton Warrior", 60, ["Ancient Bone Sword"])
+    play_story(story, game_state)
+    event = consume_event(game_state)
+    if event:
+        slow_print(f"\nAn {game_state['active_monster']} appears!")
+        fight(game_state["player"], game_state["active_monster"])
+    else:
+        slow_print("\nYour adventure ends here. Thanks for playing!")
 
-# starts combat system
-result = fight(player, skeleton)
 
-# starts outro
-outro(result, player)
+if __name__ == "__main__":
+    start()

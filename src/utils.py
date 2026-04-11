@@ -17,3 +17,19 @@ def ask_choice(question, options):
 def print_screen(file_path):
     with open(file_path, 'r') as file:
         print(file.read())
+
+
+def handle_choice(scene):
+    for line in scene.get("text", []):
+        slow_print(f"\n{line}")
+
+    # Scene zonder keuze = gewoon tonen en door
+    if not scene.get("options"):
+        return None
+
+    choice = ask_choice(scene["question"], scene["options"])
+
+    for line in scene["results"].get(choice, []):
+        slow_print(f"\n{line}")
+
+    return choice
