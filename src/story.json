@@ -125,9 +125,7 @@
     "question": "",
     "options": [],
     "results": {},
-    "next": {
-      "": "post_crypt_choice"
-    }
+    "next": "post_crypt_choice"
   },
 
   "post_crypt_choice": {
@@ -166,9 +164,7 @@
     "question": "",
     "options": [],
     "results": {},
-    "next": {
-      "": "valoria_return"
-    }
+    "next": "valoria_return"
   },
 
   "valoria_return": {
@@ -208,9 +204,7 @@
     "question": "",
     "options": [],
     "results": {},
-    "next": {
-      "": "after_bandits"
-    }
+    "next": "after_bandits"
   },
 
 "after_bandits": {
@@ -241,6 +235,6 @@
   "question": "",
   "options": [],
   "results": {},
-  "next": {}
+  "next": null
 }
 }

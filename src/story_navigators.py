@@ -30,12 +30,16 @@ def play_story(story: dict, game_state: dict) -> bool | None:
 
         # scene zonder keuzes (zoals battle_start)
         if not scene.get("options"):
-           game_state['active_monster'] = monster.Monster(
-                name=scene["monster"]["name"],
-                health=scene["monster"]["health"],
-                loot=scene["monster"]["loot"]
-           )
-           trigger_event(game_state, current_scene)
+           if scene.get("monster"):
+                game_state['active_monster'] = monster.Monster(
+                    name=scene["monster"]["name"], 
+                    health=scene["monster"]["health"], 
+                    loot=scene["monster"]["loot"]
+                )
+                trigger_event(game_state)
+           next_scene = scene.get("next")
+           current_scene = next_scene if next_scene else None
+           continue
 
         # geen volgende scene = stop
         if "next" not in scene or not scene["next"]:

@@ -1,3 +1,6 @@
+from core.combat import fight
+
+
 def create_game_state(player: object) -> dict:
     return {
         "player": player,
@@ -8,9 +11,10 @@ def create_game_state(player: object) -> dict:
     }
 
 
-def trigger_event(state: dict, event_name: str) -> None:
-    state["pending_event"] = event_name
-
+def trigger_event(state: dict) -> None:
+    if state.get("active_monster"):
+        fight(state["player"], state["active_monster"])
+        state["active_monster"] = None
 
 def consume_event(state: dict) -> str | None:
     event = state["pending_event"]
