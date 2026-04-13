@@ -135,13 +135,21 @@ def fight(player, monster) -> str:
     if player.health > 0 and monster.health <= 0:
         print(CLEAR_SCREEN, end="")
         print_action(f"{player.name} win the fight!")
+
+        # ❤️ NIEUW: heal 30%
+        heal_amount = int(player.max_health * 0.3)
+        player.health = min(player.health + heal_amount, player.max_health)
+        print_action(f"{player.name} recovers {heal_amount} HP!")
+
         time.sleep(2)
         fight_result = "won"
+
     elif fled:
         print(CLEAR_SCREEN, end="")
         print_action(f"{player.name} escapes from the fight!")
         time.sleep(2)
         fight_result = "fled"
+
     else:
         print(CLEAR_SCREEN, end="")
         print_screen(DEATH_SCREEN)
@@ -154,4 +162,4 @@ def fight(player, monster) -> str:
 
 
 if __name__ == "__main__":
-    fight(Player("Hero", 100, []), Monster("Monster", 50, []))
+    fight(Player("Hero", 100, []), Monster("Monster", 50, ["Ancient Bone Sword"]))
