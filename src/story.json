@@ -1,15 +1,18 @@
 {
   "start": "accept_quest",
+
   "accept_quest": {
     "text": [
-      "It appears you are a traveling Hero seeking a quest correct?"
+      "It appears you are a traveling Hero seeking a quest correct?",
+      "The Kingdom of Valoria has not known peace for quite some time..."
     ],
     "question": "Do you accept this quest?",
     "options": ["yes", "no"],
     "results": {
       "yes": [
-        "There is a Dungeon called the Crypt of the Forgotten King here in this Kingdom.",
-        "Hidden treasures lie inside... and perhaps an ultra rare artifact."
+        "There is a Dungeon called the Crypt of the Forgotten King.",
+        "Many who entered never returned...",
+        "But rumors speak of treasures beyond imagination."
       ],
       "no": [
         "Safe travels adventurer."
@@ -20,6 +23,7 @@
       "no": null
     }
   },
+
   "dungeon_location": {
     "text": [],
     "question": "Would you like to know where this Dungeon is?",
@@ -38,15 +42,18 @@
       "no": null
     }
   },
+
   "shop_choice": {
     "text": [
-      "While heading to the entrance you notice a small shop for weapons and armor."
+      "While heading to the entrance you notice a small shop for weapons and armor.",
+      "The shopkeeper eyes you carefully..."
     ],
     "question": "Would you like to go inside or continue?",
     "options": ["inside", "continue"],
     "results": {
       "inside": [
         "You enter the shop hoping to buy armor...",
+        "\"You look like trouble... or dead soon,\" the shopkeeper mutters.",
         "But you quickly realize you have no gold.",
         "Embarrassed, you leave the shop."
       ],
@@ -59,14 +66,17 @@
       "continue": "meet_guide"
     }
   },
+
   "meet_guide": {
     "text": [
-      "You finally arrive at the entrance where a guide waits."
+      "You finally arrive at the entrance where a guide waits.",
+      "He studies you in silence..."
     ],
     "question": "The guide asks: Are you the Hero seeking the Crypt?",
     "options": ["yes", "no"],
     "results": {
       "yes": [
+        "\"Then listen carefully... many have tried.\"",
         "You begin the long walk through the forest.",
         "After hours of travel, the entrance of the Crypt stands before you.",
         "Ancient stone doors covered in runes tower above you."
@@ -80,6 +90,7 @@
       "no": null
     }
   },
+
   "enter_crypt": {
     "text": [],
     "question": "Do you enter the Crypt?",
@@ -88,6 +99,7 @@
       "yes": [
         "You slowly step inside the dark Crypt...",
         "Torches flicker along the cold stone walls.",
+        "A strange whisper echoes through the halls...",
         "Suddenly... bones begin rattling nearby."
       ],
       "no": [
@@ -99,39 +111,136 @@
       "no": null
     }
   },
+
   "battle_crypt": {
     "text": [
       "A Skeleton rises from the ground!",
       "Your first battle begins!"
     ],
     "monster": {
-        "name": "Skeleton",
-        "health": 50,
-        "loot": ["Rusty Sword", "Bones"]
+      "name": "Skeleton Warrior",
+      "health": 50,
+      "loot": ["Ancient Bone Sword"]
     },
     "question": "",
     "options": [],
     "results": {},
-    "next": {}
+    "next": {
+      "": "post_crypt_choice"
+    }
   },
-  "outro": {
-    "text": [],
+
+  "post_crypt_choice": {
+    "text": [
+      "The skeleton collapses into a pile of bones.",
+      "You catch your breath as silence fills the crypt.",
+      "Something deeper within calls to you...",
+      "But you also feel it... something is wrong in Valoria."
+    ],
+    "question": "What will you do?",
+    "options": ["continue", "return"],
+    "results": {
+      "continue": [
+        "You decide to push deeper into the unknown..."
+      ],
+      "return": [
+        "You decide it would be wise to return to the city first."
+      ]
+    },
+    "next": {
+      "continue": "future_crypt_path",
+      "return": "valoria_return"
+    }
+  },
+
+  "future_crypt_path": {
+    "text": [
+      "You walk deeper into the crypt...",
+      "The darkness grows heavier with every step.",
+      "A voice whispers in your mind...",
+      "\"You are not ready...\"",
+      "An overwhelming force pushes you back.",
+      "You barely escape with your life.",
+      "Perhaps you should prepare before returning."
+    ],
     "question": "",
     "options": [],
+    "results": {},
+    "next": {
+      "": "valoria_return"
+    }
+  },
+
+  "valoria_return": {
+    "text": [
+      "After leaving the crypt, you return to Valoria.",
+      "But something feels wrong...",
+      "The streets are quieter than before.",
+      "People whisper as you pass..."
+    ],
+    "question": "Do you investigate the city?",
+    "options": ["yes", "no"],
     "results": {
-        "win": [
-          "You defeated the Skeleton Warrior!",
-          "Congratulations on your victory!"
-        ],
-        "lose": [
-          "You were defeated by the Skeleton Warrior.",
-          "Better luck next time!"
-        ],
-          "flee": [
-            "You fled from the battle.",
-            "Sometimes discretion is the better part of valor."
-          ]
+      "yes": [
+        "You decide to walk deeper into the city."
+      ],
+      "no": [
+        "You try to ignore it... but a scream stops you."
+      ]
     },
-    "next": {}
-  }
+    "next": {
+      "yes": "bandit_encounter",
+      "no": "bandit_encounter"
+    }
+  },
+
+  "bandit_encounter": {
+    "text": [
+      "You hear a desperate cry from an alley.",
+      "A merchant is surrounded by five bandits.",
+      "\"Another hero... how amusing.\""
+    ],
+    "monster": {
+      "name": "Bandit Group",
+      "health": 80,
+      "loot": ["Gold Pouch"]
+    },
+    "question": "",
+    "options": [],
+    "results": {},
+    "next": {
+      "": "after_bandits"
+    }
+  },
+
+"after_bandits": {
+  "text": [
+    "The last bandit falls, his weapon clattering onto the stone.",
+    "Silence settles over the street.",
+    "",
+    "The merchant collapses, shaking.",
+    "\"T-thank you...\"",
+    "\"They’ve taken over parts of the city...\"",
+    "",
+    "You look around.",
+    "The streets are empty.",
+    "Too empty.",
+    "",
+    "A cold wind moves through the alleys.",
+    "Somewhere in the distance, something echoes.",
+    "",
+    "This city isn’t safe.",
+    "Not anymore.",
+    "",
+    "You tighten your grip and take a step forward.",
+    "",
+    "This is only the beginning.",
+    "",
+    "Continue..."
+  ],
+  "question": "",
+  "options": [],
+  "results": {},
+  "next": {}
+}
 }
